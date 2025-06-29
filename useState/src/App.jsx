@@ -4,6 +4,8 @@ import './App.css'
 function App() {
   const [exam1, setExam1] = useState(0);
   const [exam2, setExam2] = useState(0);
+  const [result, setResult] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
   const sum = () => {
     debugger;
@@ -11,25 +13,34 @@ function App() {
   }
 
   const calculateAverage = () => {
-    const result = sum(exam1, exam2)/2;
-    debugger;
-    print(result);   
+    const avg = sum() / 2;
+    print(avg);
+    setShowResult(true);
   }
 
   const print = (result) => {
-    debugger;
     console.log(`The average is: ${result}`);
+    setResult(result);
   }
-
-
-
 
   return (
     <>
-      <div><input type='number' value={exam1} onChange={(e) => setExam1( Number(e.target.value))}></input></div>
-      <div><input type='number' value={exam2} onChange={(e) => setExam2(Number(e.target.value))}></input></div>
-      <div><button onClick={calculateAverage}>Calculate Average</button></div>
+      <div>
+        <input type='number' value={exam1} onChange={(e) => setExam1(Number(e.target.value))} />
+      </div>
+      <div>
+        <input type='number' value={exam2} onChange={(e) => setExam2(Number(e.target.value))} />
+      </div>
+      <div>
+        <button onClick={calculateAverage}>Calculate Average</button>
+      </div>
+      {showResult && (
+        <div>
+          <h2> Result: {result}</h2>
+        </div>
+      )}
     </>
+    //we put after AND parentheses to avoid the error
   )
 }
 
