@@ -8,17 +8,12 @@ function App() {
   return (
     <>
     <div>
-      <Header />
-      {
-        courses?.map((course) => (
-         <>
+       <Header />
+      { //JSX icinde liste render etmek icin map kullanilmali forEach olmaz.
+         courses?.map((course) => (
          <Course key={course.id} course={course}/>
-
-          </>
-      
-          
         ))
-      }
+      } 
     </div>
     </>
   )
