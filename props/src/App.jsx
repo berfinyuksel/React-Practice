@@ -15,9 +15,12 @@ function App() {
         <hr style={{border:"1px solid blue"}} />
         <Product productName={product.productName} price={product.price} />
         <hr style={{border:"1px solid blue"}} />
+
+
         <Container>
           <Product productName="Ceket" price={1500} />
         </Container>
+        
       </div>
   )
 }
